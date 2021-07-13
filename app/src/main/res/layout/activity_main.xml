@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/teal_700"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/Register_Username"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="204dp"
+        android:background="@drawable/rounded_login_register_drawable"
+        android:ems="10"
+        android:hint="UserName"
+        android:inputType="textPersonName"
+        android:paddingLeft="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/Register_Email"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_login_register_drawable"
+        android:ems="10"
+        android:hint="EMAIL"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/Register_Username"
+        app:layout_constraintStart_toStartOf="@+id/Register_Username"
+        app:layout_constraintTop_toBottomOf="@+id/Register_Username" />
+
+    <EditText
+        android:id="@+id/Register_Password"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_login_register_drawable"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:paddingLeft="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/Register_Email"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/Register_Email"
+        app:layout_constraintTop_toBottomOf="@+id/Register_Email" />
+
+    <Button
+        android:id="@+id/Register_Bottom"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Register"
+        android:background="@drawable/rounded_bottom"
+        app:layout_constraintEnd_toEndOf="@+id/Register_Password"
+        app:layout_constraintStart_toStartOf="@+id/Register_Password"
+        app:layout_constraintTop_toBottomOf="@+id/Register_Password" />
+
+    <TextView
+        android:id="@+id/Register_already"
+        android:layout_width="375dp"
+        android:layout_height="73dp"
+        android:text="Already have an account?"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/Register_Bottom"
+        app:layout_constraintStart_toStartOf="@+id/Register_Bottom"
+        app:layout_constraintTop_toBottomOf="@+id/Register_Bottom" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
