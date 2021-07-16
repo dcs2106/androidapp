@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.Serializable
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +20,7 @@ class LoginActivity : AppCompatActivity() {
             //val username = Register_Username.text.toString()
             val mail = Login_Email.text.toString()
             val password = Login_Password.text.toString()
+            val user = user_data(mail,password)
             //Log.d("MainActivity","Username is : $username")
             Log.d("MainActivity","Email is : $mail")
             Log.d("MainActivity","Password :  $password")
@@ -38,6 +40,7 @@ class LoginActivity : AppCompatActivity() {
                     Log.d("LoginActivity","Successfully signedin user with uid : ${it.result!!.user!!.uid}")
                     Toast.makeText(this,"Success", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, AddNewFileActivity::class.java)
+                    intent.putExtra("user_data",user)
                     startActivity(intent)
                 }
                 .addOnFailureListener{
@@ -53,4 +56,10 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
     }
+
+
+}
+class user_data(val mail:String, val password:String): Serializable{
+    val save_mail = mail
+    val save_password = password
 }

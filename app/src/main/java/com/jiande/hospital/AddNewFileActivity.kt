@@ -12,12 +12,16 @@ import kotlinx.android.synthetic.main.activity_addnewfile.*
 import java.util.*
 
 import android.net.Uri
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class AddNewFileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addnewfile)
-
+        val intent = getIntent()
+        val user:user_data? = intent.getSerializableExtra("user_data") as user_data?
+        Log.d("AddNewFileActivity","${user?.mail}  ${user?.password}")
         select_photo_bottom.setOnClickListener(){
             Log.d("AddNewFileActivity","select Image")
             val intent = Intent(Intent.ACTION_PICK)
@@ -50,6 +54,8 @@ class AddNewFileActivity : AppCompatActivity() {
                 Log.d("AddNewFileActivity","Successfully : ${it.metadata?.path}")
             }
     }
+
+
     var selectedPhotoUri: Uri? = null
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -71,6 +77,15 @@ class AddNewFileActivity : AppCompatActivity() {
         }
     }
 
+    /*private fun saveUserdataToFireBase(){
+        val uid = FirebaseAuth.getInstance().uid
+        val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
 
+        val user = User(uid,,)
+
+        ref.setValue()
+    }
+
+    class User(val uid:String, val username:String, val photourl:String)*/
 
 }
